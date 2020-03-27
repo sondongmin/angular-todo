@@ -1,0 +1,42 @@
+<div class="container">
+    <h2 class="header">Todo App</h2>
+    <mat-form-field class="item">
+        <input 
+            class="input"
+            #newtaskinput
+            matInput 
+            ngDefaultControl
+            [(ngModel)]="newTitle"
+            (keyup.enter)="addTodo()" 
+            placeholder="Add a todo"
+            name="title" 
+            
+        >
+    </mat-form-field>
+    <button class="button" ngDefaultControl [disabled]="newTitle == ''" mat-raised-button color="primary" (click)="addTodo()" [(ngModel)]="newTitle">Add</button>
+    <div>
+        <ul *ngFor="let todo of todos" [ngClass]="{text: !todo.enabled}">
+            <mat-list-item class="item">
+
+                <mat-checkbox class="checkbox" [checked]="todo.isDone" (click)="toggleCompleted(todo)"></mat-checkbox>
+                    <input 
+                        class="edit"
+                        #updatedTodo
+                        matInput 
+                        [value]="todo.title"
+                        [disabled]="todo.enabled === false"
+                        (keyup.enter)="updateTitle(todo, updatedTodo.value)"
+                        
+                    >
+                
+                <button class="icon" matTooltip="Edit task" matTooltipPosition="above" mat-icon-button (click)="todo.enabled = !todo.enabled">
+                    <mat-icon>edit</mat-icon>
+                </button>
+
+                <button class="icon" matTooltip="Delete task" matTooltipPosition="above" mat-icon-button (click)="deleteTodo(todo)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </mat-list-item>
+        </ul>
+    </div>
+</div>

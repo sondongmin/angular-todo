@@ -1,0 +1,36 @@
+.icon {
+    float:right;
+    color: black;
+}
+.edit {
+    display:inline-block;
+    margin-left: 30px;
+    max-width: 50%;
+}
+
+.input {
+    max-width: 50%;
+}
+.header {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.button {
+    margin-left: 30px;
+}
+
+.text input:disabled {
+    color: rgb(255, 64, 129);
+}
+
+.container {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.item {
+    width: 80%;
+    display: inline-block;
+    color: black;
+}
